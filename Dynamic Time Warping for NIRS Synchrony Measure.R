@@ -1,3 +1,12 @@
+#Pre-processing of collected NIRS data on nirsLAB (NIRx Medical Technologies LLC, v2017.06, Windows 64bit):
+#   1. Truncate signals outside condition timeframes
+#   2. Inspect quality of the 20 NIRS channels, excluding noisy channels with gain setting>8 and coefficient of variation (CV) value>7.5 from further pre-processing
+#   3. Remove spike artefacts and replace them with the nearest signals
+#   4. Remove discontinuities in signals
+#   5. Apply band-pass frequency filter (0.1 Hz - 0.2 Hz) to signals to remove high frequency information and very low frequency information
+#   6. Convert signals to relative changes in HbO and HbR concentrations using the modified Beer-Lambert law
+#Obtain time-series data for each subject
+
 #remove previous variables
 rm(list = ls())
 
@@ -18,7 +27,7 @@ s1[is.na(s1)] <- 0
 s2 <- read_excel("s2.xlsx")
 s2[is.na(s2)] <- 0
 
-#demarcation of time-frame for each condition; 20 columns for 20 NIRS channels
+#demarcation of timeframe for each condition; 20 columns for 20 NIRS channels
 s1cond1<-data.frame(s1[48:711,2:21])
 s1cond2<-data.frame(s1[1009:2227,2:21])
 s1cond3<-data.frame(s1[2501:3422,2:21])
