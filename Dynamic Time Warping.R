@@ -1,3 +1,5 @@
+#Background information: A dyad consisting of two subjects; four conditions
+
 #remove previous variables
 rm(list = ls())
 
