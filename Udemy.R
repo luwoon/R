@@ -238,3 +238,34 @@ library(ggplot2)
 qplot(data=merged1960, x=Fertility.Rate, y=Life.Exp,colour=Region, size=I(5), alpha=I(0.6), main="Life Expectancy vs Fertility (1960)")
 #Visualize the 2013 dataset
 qplot(data=merged2013, x=Fertility.Rate, y=Life.Exp,colour=Region, size=I(5), alpha=I(0.6), main="Life Expectancy vs Fertility (2013)")
+
+
+#SECTION 6 HOMEWORK
+setwd("C:\\Users\\pangl\\Downloads")
+mov <- read.csv("Section6-Homework-Data.csv")
+
+head(mov) 
+summary(mov) 
+str(mov) 
+
+library(ggplot2)
+
+ggplot(data=mov, aes(x=Day.of.Week)) + geom_bar()
+
+filt <- (mov$Genre == "action") | (mov$Genre == "adventure") | (mov$Genre == "animation") | (mov$Genre == "comedy") | (mov$Genre == "drama")
+filt2 <- (mov$Studio == "Buena Vista Studios") | (mov$Studio == "WB") | (mov$Studio == "Fox") | (mov$Studio == "Universal") | (mov$Studio == "Sony") | (mov$Studio == "Paramount Pictures")
+mov2 <- mov[filt & filt2,]
+
+p <- ggplot(data=mov2, aes(x=Genre, y=Gross...US))
+q <- p + geom_jitter(aes(size=Budget...mill., colour=Studio)) + geom_boxplot(alpha=0.7, outlier.colour = NA)
+q <- q + xlab("Genre") + ylab("Gross % US") + ggtitle("Domestic Gross % by Genre")
+q <- q + theme(text = element_text(family="Comic Sans MS"),
+    axis.title.x = element_text(colour="Blue", size=30),
+    axis.title.y = element_text(colour="Blue", size=30),
+    axis.text.x = element_text(size=20),
+    axis.text.y = element_text(size=20),  
+    plot.title = element_text(colour="Black", size=40),
+    legend.title = element_text(size=20),
+    legend.text = element_text(size=12))
+q$labels$size = "Budget $M"
+q
