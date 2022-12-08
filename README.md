@@ -11,3 +11,5 @@
       6. Convert signals to relative changes in HbO and HbR concentrations using the modified Beer-Lambert law
 
    After obtaining the time-series data for each subject, they were analysed in RStudio using Dynamic Time Warping to investigate the inter-brain synchrony between the    dyads.
+
+2. Udemy course practice
