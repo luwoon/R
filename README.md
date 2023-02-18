@@ -1,5 +1,7 @@
 # R
 
-1. Analysis of time-series Near-Infrared Spectroscopy data to investigate inter-brain synchrony between mother and child
+1. Dynamic Time Warping:
+   Analysis of time-series Near-Infrared Spectroscopy data to investigate inter-brain synchrony between mother and child
 
-2. Udemy course practice
+2. Udemy
+   Course practice
