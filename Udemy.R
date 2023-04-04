@@ -183,27 +183,27 @@ rm(KobeBryant_FTA, JoeJohnson_FTA, CarmeloAnthony_FTA, DwightHoward_FTA, ChrisBo
 colnames(FreeThrowAttempts) <- Seasons
 rownames(FreeThrowAttempts) <- Players
 
-#Plotting function
+#plotting function
 myplot <- function(matrix) {
   matplot(t(matrix), type="b", pch=15:18, col=c(1:4,6), main="Basketball Players Analysis")
   legend("bottomleft", inset=0.01, legend=Players, col=c(1:4,6), pch=15:18, horiz=F)
 }
 
-#Visualize new matrices
+#visualize new matrices
 myplot(FreeThrows)
 myplot(FreeThrowAttempts)
 
-#Free Throw Attempts Per Game
+#free throw attempts per game
 myplot(FreeThrows/Games)
 
-#Free Throw Accuracy
+#free throw accuracy
 myplot(FreeThrows/FreeThrowAttempts)
 
-#Player Style Patterns Excluding Free Throws
+#player style patterns excluding free throws
 myplot((Points-FreeThrows)/FieldGoals)
 
 
-#SECTIONN 5 HOMEWORK
+#SECTION 5 HOMEWORK
 getwd()
 setwd("C:\\Users\\pangl\\Downloads")
 getwd()
@@ -227,16 +227,16 @@ Life_Expectancy_At_Birth_2013 <- c(75.3286585365854,60.0282682926829,51.86617073
 add1960 <- data.frame(Code=Country_Code, Life.Exp=Life_Expectancy_At_Birth_1960)
 add2013 <- data.frame(Code=Country_Code, Life.Exp=Life_Expectancy_At_Birth_2013)
 
-#Merge dataframes  
+#merge dataframes  
 merged1960 <- merge(data1960, add1960, by.x="Country.Code", by.y="Code")
 merged2013 <- merge(data2013, add2013, by.x="Country.Code", by.y="Code")
 merged1960$Year <- NULL
 merged2013$Year <- NULL
 
 library(ggplot2)
-#Visualize the 1960 dataset
+#visualize the 1960 dataset
 qplot(data=merged1960, x=Fertility.Rate, y=Life.Exp,colour=Region, size=I(5), alpha=I(0.6), main="Life Expectancy vs Fertility (1960)")
-#Visualize the 2013 dataset
+#visualize the 2013 dataset
 qplot(data=merged2013, x=Fertility.Rate, y=Life.Exp,colour=Region, size=I(5), alpha=I(0.6), main="Life Expectancy vs Fertility (2013)")
 
 
