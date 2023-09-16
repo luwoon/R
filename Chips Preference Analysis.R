@@ -170,7 +170,7 @@ p4 <- ggplot(data = average_price_by_lifestage_and_premium_customer, aes(x = reo
   geom_bar(stat="identity")
 p4
 #mainstream mid-age and young singles/couples are more willing to pay more per packet of chips compared to their budget and premium counterparts
-#may be due to premium shoppers being more likely to buy healthy snacks and when they buy chips, this is mainly for entertainment purposes rather than their own consumption
+#may be due to premium shoppers being more likely to buy healthy snacks and when they buy chips, it is mainly for entertainment purposes rather than their own consumption
 
 #independent t-test between mainstream vs premium and budget midage and young singles/couples on average price per unit
 s1 <- average_price_by_lifestage_and_premium_customer[average_price_by_lifestage_and_premium_customer$GROUP == 'Mainstream YOUNG SINGLES/COUPLES' | average_price_by_lifestage_and_premium_customer$GROUP == 'Mainstream MIDAGE SINGLES/COUPLES',]
