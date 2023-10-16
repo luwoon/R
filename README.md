@@ -1,6 +1,6 @@
 # R Portfolio
 
-Hello and welcome to my R portfolio! Feel free to look around here and reach out if you have any questions or feedback. ☺️
+Hello and welcome to my R portfolio!
 
 | Project Name    | Description |
 | -------- | ------- |
