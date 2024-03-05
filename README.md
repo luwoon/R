@@ -1,6 +1,6 @@
 # R Portfolio
 
-Hello and welcome to my R portfolio!
+Welcome to my R portfolio!
 
 | Project Name    | Description |
 | -------- | ------- |
