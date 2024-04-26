@@ -1,6 +1,6 @@
 # R Portfolio
 
-Welcome to my R portfolio!
+This repository contains samples of R code that I have written.
 
 | Project Name    | Description |
 | -------- | ------- |
