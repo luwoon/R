@@ -13,28 +13,28 @@ answer
 
 
 # SECTION 3 HOMEWORK
-# data
+# Data
 revenue <- c(14574.49, 7606.46, 8611.41, 9175.41, 8058.65, 8105.44, 11496.28, 9766.09, 10305.32, 14379.96, 10713.97, 15433.50)
 expenses <- c(12051.82, 5695.07, 12319.20, 12089.72, 8658.57, 840.20, 3285.73, 5821.12, 6976.93, 16618.61, 10054.37, 3803.96)
-# profit for each month
+# Profit for each month
 profit <- (revenue-expenses)*1000
-# profit after tax for each month (the tax rate is 30%)
+# Profit after tax for each month (the tax rate is 30%)
 profitaftertax <- (.7*revenue-expenses)*1000
-# profit margin for each month - equals to profit a after tax divided by revenue
+# Profit margin for each month - equals to profit a after tax divided by revenue
 profitmargin <- round((.7*revenue-expenses)/revenue*100)
-# good months - where the profit after tax was greater than the mean for the year
+# Good months - where the profit after tax was greater than the mean for the year
 for(i in profitaftertax){
   print(i>mean(profitaftertax))
 }
-# bad months - where the profit after tax was less than the mean for the year
+# Bad months - where the profit after tax was less than the mean for the year
 for(i in profitaftertax){
   print(i<mean(profitaftertax))
 }
-# the best month - where the profit after tax was max for the year
+# The best month - where the profit after tax was max for the year
 for(i in profitaftertax){
   print(i==max(profitaftertax))
 }
-# the worst month - where the profit after tax was min for the year
+# The worst month - where the profit after tax was min for the year
 for(i in profitaftertax){
   print(i==min(profitaftertax))
 }
@@ -81,7 +81,7 @@ rm(KobeBryant_G, JoeJohnson_G, CarmeloAnthony_G, DwightHoward_G, ChrisBosh_G, Le
 colnames(Games) <- Seasons
 rownames(Games) <- Players
 
-# Minutes Played
+# Minutes played
 KobeBryant_MP <- c(3277,3140,3192,2960,2835,2779,2232,3013,177,1207)
 JoeJohnson_MP <- c(3340,2359,3343,3124,2886,2554,2127,2642,2575,2791)
 LeBronJames_MP <- c(3361,3190,3027,3054,2966,3063,2326,2877,2902,2493)
@@ -98,7 +98,7 @@ rm(KobeBryant_MP, JoeJohnson_MP, CarmeloAnthony_MP, DwightHoward_MP, ChrisBosh_M
 colnames(MinutesPlayed) <- Seasons
 rownames(MinutesPlayed) <- Players
 
-# Field Goals
+# Field goals
 KobeBryant_FG <- c(978,813,775,800,716,740,574,738,31,266)
 JoeJohnson_FG <- c(632,536,647,620,635,514,423,445,462,446)
 LeBronJames_FG <- c(875,772,794,789,768,758,621,765,767,624)
@@ -115,7 +115,7 @@ rm(KobeBryant_FG, JoeJohnson_FG, LeBronJames_FG, CarmeloAnthony_FG, DwightHoward
 colnames(FieldGoals) <- Seasons
 rownames(FieldGoals) <- Players
 
-# Field Goal Attempts
+# Field goal attempts
 KobeBryant_FGA <- c(2173,1757,1690,1712,1569,1639,1336,1595,73,713)
 JoeJohnson_FGA <- c(1395,1139,1497,1420,1386,1161,931,1052,1018,1025)
 LeBronJames_FGA <- c(1823,1621,1642,1613,1528,1485,1169,1354,1353,1279)
@@ -149,7 +149,7 @@ rm(KobeBryant_PTS, JoeJohnson_PTS, LeBronJames_PTS, CarmeloAnthony_PTS, DwightHo
 colnames(Points) <- Seasons
 rownames(Points) <- Players
 
-# Free Throws
+# Free throws
 KobeBryant_FT <- c(696,667,623,483,439,483,381,525,18,196)
 JoeJohnson_FT <- c(261,235,316,299,220,195,158,132,159,141)
 LeBronJames_FT <- c(601,489,549,594,593,503,387,403,439,375)
@@ -166,7 +166,7 @@ rm(KobeBryant_FT, JoeJohnson_FT, CarmeloAnthony_FT, DwightHoward_FT, ChrisBosh_F
 colnames(FreeThrows) <- Seasons
 rownames(FreeThrows) <- Players
 
-# Free Throw Attempts
+# Free throw attempts
 KobeBryant_FTA <- c(819,768,742,564,541,583,451,626,21,241)
 JoeJohnson_FTA <- c(330,314,379,362,269,243,186,161,195,176)
 LeBronJames_FTA <- c(814,701,771,762,773,663,502,535,585,528)
@@ -183,23 +183,23 @@ rm(KobeBryant_FTA, JoeJohnson_FTA, CarmeloAnthony_FTA, DwightHoward_FTA, ChrisBo
 colnames(FreeThrowAttempts) <- Seasons
 rownames(FreeThrowAttempts) <- Players
 
-# plotting function
+# Plotting function
 myplot <- function(matrix) {
   matplot(t(matrix), type="b", pch=15:18, col=c(1:4,6), main="Basketball Players Analysis")
   legend("bottomleft", inset=0.01, legend=Players, col=c(1:4,6), pch=15:18, horiz=F)
 }
 
-# visualize new matrices
+# Visualize new matrices
 myplot(FreeThrows)
 myplot(FreeThrowAttempts)
 
-# free throw attempts per game
+# Free throw attempts per game
 myplot(FreeThrows/Games)
 
-# free throw accuracy
+# Free throw accuracy
 myplot(FreeThrows/FreeThrowAttempts)
 
-# player style patterns excluding free throws
+# Player style patterns excluding free throws
 myplot((Points-FreeThrows)/FieldGoals)
 
 
@@ -227,16 +227,16 @@ Life_Expectancy_At_Birth_2013 <- c(75.3286585365854,60.0282682926829,51.86617073
 add1960 <- data.frame(Code=Country_Code, Life.Exp=Life_Expectancy_At_Birth_1960)
 add2013 <- data.frame(Code=Country_Code, Life.Exp=Life_Expectancy_At_Birth_2013)
 
-# merge dataframes  
+# Merge dataframes  
 merged1960 <- merge(data1960, add1960, by.x="Country.Code", by.y="Code")
 merged2013 <- merge(data2013, add2013, by.x="Country.Code", by.y="Code")
 merged1960$Year <- NULL
 merged2013$Year <- NULL
 
 library(ggplot2)
-# visualize the 1960 dataset
+# Visualize the 1960 dataset
 qplot(data=merged1960, x=Fertility.Rate, y=Life.Exp,colour=Region, size=I(5), alpha=I(0.6), main="Life Expectancy vs Fertility (1960)")
-# visualize the 2013 dataset
+# Visualize the 2013 dataset
 qplot(data=merged2013, x=Fertility.Rate, y=Life.Exp,colour=Region, size=I(5), alpha=I(0.6), main="Life Expectancy vs Fertility (2013)")
 
 
