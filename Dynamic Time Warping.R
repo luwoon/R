@@ -1,6 +1,6 @@
-# two subjects, four conditions
+# Two subjects, four conditions
 
-# remove previous variables
+# Remove previous variables
 rm(list = ls())
 
 library(dtw);
@@ -10,17 +10,17 @@ library(stats);
 library(MASS);
 library(readxl)
 
-# set path
+# Set path
 setwd("C:/Users/XXX/XXX")
 
-# read time-series data of each subject in the dyad
+# Read time-series data of each subject in the dyad
 s1 <- read_excel("s1.xlsx")
-#change bad channels to 0
+# Change bad channels to 0
 s1[is.na(s1)] <- 0
 s2 <- read_excel("s2.xlsx")
 s2[is.na(s2)] <- 0
 
-# demarcation of timeframe for each condition; 20 columns for 20 NIRS channels
+# Demarcation of timeframe for each condition; 20 columns for 20 NIRS channels
 s1cond1 <- data.frame(s1[48:711,2:21])
 s1cond2 <- data.frame(s1[1009:2227,2:21])
 s1cond3 <- data.frame(s1[2501:3422,2:21])
@@ -30,7 +30,7 @@ s2cond2 <- data.frame(s2[1009:2227,2:21])
 s2cond3 <- data.frame(s2[2501:3422,2:21])
 s2cond4 <- data.frame(s2[3704:5156,2:21])
 
-# create 20xN matrix where N=number of rows of data
+# Create 20xN matrix where N=number of rows of data
 cond1s1 = matrix(ncol=20, nrow=1219)
 cond1s2 = matrix(ncol=20, nrow=1219)
 cond2s1 = matrix(ncol=20, nrow=664)
@@ -78,3 +78,4 @@ write.table(cond1.align.ndist, file = "cond1XXX.csv",row.names=TRUE, col.names=T
 write.table(cond2.align.ndist, file = "cond2XXX.csv",row.names=TRUE, col.names=TRUE, sep=",")
 write.table(cond3.align.ndist, file = "cond3XXX.csv",row.names=TRUE, col.names=TRUE, sep=",")
 write.table(cond4.align.ndist, file = "cond4XXX.csv",row.names=TRUE, col.names=TRUE, sep=",")
+
